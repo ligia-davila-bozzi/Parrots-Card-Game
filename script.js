@@ -1,16 +1,3 @@
-const cartas = ["<img src='images/bobrossparrot.gif'>",
-"<img src='images/explodyparrot.gif'>",
-"<img src='images/fiestaparrot.gif'>",
-"<img src='images/metalparrot.gif'>",
-"<img src='images/revertitparrot.gif'>",
-"<img src='images/tripletsparrot.gif'>",
-"<img src='images/unicornparrot.gif'>"];
-
-
-let nCartas = Number(prompt("Com quantas cartas você quer jogar?"));
-/*let i = nCartas/2;
-let j = nCartas;*/
-
 function validaEntrada() {
     const par = nCartas % 2 === 0;
     const minimo = nCartas > 3;
@@ -23,9 +10,20 @@ function validaEntrada() {
     }
 }
 
-validaEntrada();
+function embaralharCartas() {
+    let cartasEmbaralhadas = [];
+    i--;
+    for (i; i >= 0; i--){
+        cartasEmbaralhadas [(2*i) + 1] = cartas [i];
+        cartasEmbaralhadas [2*i] = cartas [i];        
+    }
+    cartasEmbaralhadas.sort(comparador);
+    return cartasEmbaralhadas;    
+}
 
-alert("tamo fluindo");
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function distribuiCartas() {
     let elemento = document.querySelector(".Tabuleiro");
@@ -37,22 +35,23 @@ function distribuiCartas() {
         <img src="images/front.png">
         </div>
         <div class="back-face face">
-        <img src="images/front.png"></div>
+        ${cartasEmbaralhadas[nCartas - 1]}</div>
         </div>
       </div>`;
     }
 }
 
-/*let cartasEmbaralhadas;
+const cartas = ["<img src='images/bobrossparrot.gif'>",
+"<img src='images/explodyparrot.gif'>",
+"<img src='images/fiestaparrot.gif'>",
+"<img src='images/metalparrot.gif'>",
+"<img src='images/revertitparrot.gif'>",
+"<img src='images/tripletsparrot.gif'>",
+"<img src='images/unicornparrot.gif'>"];
 
-function embaralharCartas() {
-    i--;
-    for (i; i >= 0; i--){
-        let j = 1;
-        j += 2*i;
-        cartasEmbaralhadas [j] = cartas [i];
-        cartasEmbaralhadas [j - 1] = cartas [i];
-        
-    }
-    
-}*/
+let nCartas = Number(prompt("Com quantas cartas você quer jogar?"));
+let i = nCartas/2;
+let j = nCartas;
+const cartasEmbaralhadas = embaralharCartas();
+
+validaEntrada();
