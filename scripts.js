@@ -30,7 +30,7 @@ function distribuiCartas() {
     elemento.innerHTML = "";
 
     for (nCartas; nCartas > 0; nCartas--) {
-        elemento.innerHTML += `<div class="Card-Board">
+        elemento.innerHTML += `<div class="Card-Board" onclick="viraCarta(this)">
         <div class="front-face face">
         <img src="images/front.png">
         </div>
@@ -40,6 +40,28 @@ function distribuiCartas() {
       </div>`;
     }
 }
+
+
+function viraCarta(cartaSelecionada) {
+    const card = document.querySelector(".Vira-Card");
+    const img = document.querySelector(".back-face");
+        if (card !== null) {
+          card.classList.add("Vira-Card");
+          img.classList.remove ("back-face");
+        }
+
+    cartaSelecionada.classList.add("Vira-Card");
+    img.classList.remove ("back-face");
+    return;
+}
+
+/*function verificaIgualdade() {retorna true ou false}
+
+function somaJogadas() {soma jogadas}
+
+function 
+
+*/
 
 const cartas = ["<img src='images/bobrossparrot.gif'>",
 "<img src='images/explodyparrot.gif'>",
