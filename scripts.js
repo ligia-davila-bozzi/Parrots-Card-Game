@@ -41,21 +41,20 @@ function distribuiCartas() {
     }
 }
 
-
 function viraCarta(cartaSelecionada) {
     const card = document.querySelector(".Vira-Card");
-    const img = document.querySelector(".back-face");
+    const img = cartaSelecionada.querySelector(".back-face");
         if (card !== null) {
           card.classList.add("Vira-Card");
           img.classList.remove ("back-face");
         }
-
-    cartaSelecionada.classList.add("Vira-Card");
+    cartaSelecionada.classList.add("Vira-Card");    
     img.classList.remove ("back-face");
-    return;
 }
 
-/*function verificaIgualdade() {retorna true ou false}
+/*
+
+function verificaIgualdade() {retorna true ou false}
 
 function somaJogadas() {soma jogadas}
 
